@@ -11,8 +11,8 @@ echo "(y or n) if you do it will update and exit."
 read -p "Are you sure? " -n 1 -r
 echo    # (optional) move to a new line
 if [ $REPLY = "y" ]; then
-    touch "/bin/emma/eu"
-    wget --output-document="/bin/emma/eu" https://raw.githubusercontent.com/arwilczek90/my_scripts/master/shell_scripts/emma_script_updater?token=ACbj1JnZlJhrElye0wjKQeT8LUo_ILhDks5U62EbwA%3D%3D;
+    touch "/bin/emma/eu";
+    wget --output-document="/bin/emma/eu" https://raw.githubusercontent.com/arwilczek90/utils/master/shell_scripts/emma_script_updater;
     chmod 777 "/bin/emma/eu";
 fi
 read -p "Select the number of what you want to update or install.
@@ -25,12 +25,8 @@ SELECTIONS:
 " -n 1 -r
  
 if [ $REPLY = 1 ]; then
-    echo "Updating Bob's Feature Flag Script..."
-    echo
-    echo 
-    echo
-    echo "==========================================================="
-    echo 
+    echo "Updating Bob's Feature Flag Script...";
+    echo "===========================================================";
     echo
     wget --output-document='/bin/emma/ffl' https://raw.githubusercontent.com/bobbranch/bashutils/master/featureflags.sh 
     if [ $? != 0 ]; then
