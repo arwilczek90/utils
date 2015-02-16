@@ -1,0 +1,25 @@
+#! /bin/bash
+if [ ! -d '/bin/emma']; then
+    mkdir '/bin/emma'
+fi
+
+cd /bin/emma
+
+echo "would you like to check for updates to this script?"
+echo "(y or n) if you do it will update and exit."
+
+echo "Do you wish to install this program?"
+select yn in "Yes" "No"; do
+      case $yn in
+                Yes ) wget -output-document='/bin/emma/eu' https://raw.githubusercontent.com/arwilczek90/my_scripts/master/shell_scripts/emma_script_updater?token=ACbj1JnZlJhrElye0wjKQeT8LUo_ILhDks5U62EbwA%3D%3D; chmod 777 '/bin/emma/eu'; break;;
+                No ) break;;
+      esac
+done
+
+wget --output-document='/bin/emma/ffl' https://raw.githubusercontent.com/bobbranch/bashutils/master/featureflags.sh 
+if [ $? != 0 ]; then
+      echo "ERROR RETRIEVING feature flag script" 1>&2
+      exit 1
+else
+      chmod 777 /bin/emma/ffl
+fi
